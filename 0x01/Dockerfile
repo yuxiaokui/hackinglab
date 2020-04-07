@@ -13,4 +13,4 @@ COPY main.py /data
 
 EXPOSE 5000
 
-CMD ["/env/bin/python", "/data/main.py"]
+CMD ["python", "/data/main.py"]
