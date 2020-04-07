@@ -4,13 +4,9 @@ RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.9/main" > /etc/apk/repos
 
 RUN apk add --update \
     python \
-    py-pip
+    py-pip \
   && pip install Flask \
   && rm -rf /var/cache/apk/*
-
-
-FROM       demo/alpine-python:1.0
-MAINTAINER demo <juest a demo>
 
 WORKDIR /data
 COPY main.py /data
