@@ -1,13 +1,26 @@
-from flask import Flask
+from flask import Flask,request
+from urllib.parse import unquote
+import requests
+
 app = Flask(__name__)
 
 @app.route("/")
 def ctf():
-    return "<script>location='error'</script> Flag{302 is good!}"
+    return '''
+    <form action='/save' method='POST'>
+    给管理员留言：<input name='text'>
+    </form>
+    '''
 
-@app.route("/error/")
-def error():
-    return "Error!"
+@app.route("/save",methods = ['POST'])
+def save():
+    data = request.get_data()
+    data = unquote(data.decode())
+    import re
+    s = re.findall(r'//(.*?)\/',data)
+    url = s[0]
+    requests.get('http://' + url + '/?flag=Xi4okvIsHacker!' )
+    return '留言成功'
 
 
 if __name__ == "__main__":
