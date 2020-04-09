@@ -8,7 +8,7 @@ app = Flask(__name__)
 def ctf():
     return '''
     <form action='/save' method='POST'>
-    给管理员留言：<input name='text'>
+    Send to admin:<input name='text'>
     </form>
     '''
 
@@ -20,7 +20,7 @@ def save():
     s = re.findall(r'//(.*?)\/',data)
     url = s[0]
     requests.get('http://' + url + '/?flag=Xi4okvIsHacker!' )
-    return '留言成功'
+    return 'OK'
 
 
 if __name__ == "__main__":
