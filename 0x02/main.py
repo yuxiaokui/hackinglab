@@ -1,5 +1,5 @@
 from flask import Flask,request
-from urllib.parse import unquote
+from urllib import unquote
 import requests
 
 app = Flask(__name__)
