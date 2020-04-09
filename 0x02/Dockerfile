@@ -6,6 +6,7 @@ RUN apk add --update \
     python \
     py-pip \
   && pip install Flask \
+  && pip install requests \
   && rm -rf /var/cache/apk/*
 
 WORKDIR /data
