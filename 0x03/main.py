@@ -1,9 +1,5 @@
 from flask import Flask,request
-from urllib.parse import unquote
-import requests
 import sqlite3
-
-
 
 app = Flask(__name__)
 
