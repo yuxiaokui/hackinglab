@@ -7,7 +7,6 @@ RUN apk add --update \
     py-pip \
   && pip install Flask \
   && pip install requests \
-  && pip install sqlite3 \
   && rm -rf /var/cache/apk/*
 
 WORKDIR /data
